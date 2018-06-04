@@ -32,10 +32,10 @@ export class MyApp {
       { title: 'Signup', component: SignupPage, icon: 'home' },
       { title: 'Login', component: LoginPage, icon: 'home' },
       { title: 'Divider', component: '' , icon: 'none' },
-      { title: 'CouponIssueServer', component: CouponIssuePage, icon: 'contact' },
-      { title: 'CouponRedeem', component: CouponRedeemPage, icon: 'contact' },
+      { title: 'Coupon Server', component: CouponIssuePage, icon: 'contact' },
+      { title: 'Coupon Client', component: CouponRedeemPage, icon: 'contact' },
       { title: 'Divider', component: '', icon: 'none' },
-      { title: 'Vendor Admin ', component: CouponAdminPage, icon: 'contact' },
+      { title: 'Vendor Plan Admin ', component: CouponAdminPage, icon: 'contact' },
       { title: 'Divider', component: '', icon: 'none' }
     ];
 
