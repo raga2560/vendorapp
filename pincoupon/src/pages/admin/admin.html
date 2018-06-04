@@ -1,5 +1,5 @@
 <!--
-  Generated template for the AdminPage page.
+  Generated template for the DroneLockPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,12 +7,50 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Admin</ion-title>
+    <ion-title>Vendor admin </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-list  inset padding>
+        <ion-item>
+            <p> Create pairs for each server client relation. </p>
+            <p> The server data to be used with server. The client data to be used with web or mobile client. </p>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Vendor id"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="number" placeholder="Enter PIN "></ion-input>
+            <button item-right ion-button color="primary">Validate vendor</button>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Income address"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Spending address"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="number" placeholder="Enter Spending Amount"></ion-input>
+            <button clear item-right ion-button>Check balance</button>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Enter Pair name "></ion-input>
+            <button clear item-right ion-button>Validate pair name </button>
+        </ion-item>
+        <ion-item>
+            <button item-left ion-button>Create Pair </button>
+        </ion-item>
+        <ion-item>
+            <a item-left ion-button  href="">Download server data </a>
+            <a item-right ion-button  href="">Download client data </a>
+        </ion-item>
+        <ion-item>
+            <button item-left ion-button>Activate </button>
+        </ion-item>
+   </ion-list>
 
 </ion-content>

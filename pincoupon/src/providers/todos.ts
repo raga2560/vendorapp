@@ -42,7 +42,8 @@ export class Todos {
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', this.authService.token);
 
-      this.http.post(this.url + '/api/todos', JSON.stringify(todo), {headers: headers})
+      this.http.post(this.url + '/api/manager/createPair',JSON.stringify(todo), {headers: headers})
+      //this.http.post(this.url + '/api/todos', JSON.stringify(todo), {headers: headers})
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
