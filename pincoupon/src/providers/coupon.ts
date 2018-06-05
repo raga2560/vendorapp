@@ -57,13 +57,37 @@ export class Coupon {
 
   createCoupon(coupondata){
 
+    var tryurl = this.url + '/api/coupon/createcoupon/';
+
     return new Promise((resolve, reject) => {
 
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', this.authService.token);
 
-      this.http.post(this.url + '/api/coupon/createCoupon',JSON.stringify(coupondata), {headers: headers})
+      this.http.post(tryurl ,JSON.stringify(coupondata), {headers: headers})
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+
+    });
+
+  }
+  
+  getcouponBalance(coupondata){
+
+    var tryurl = this.url + '/api/coupon/balance/' + couponid;
+
+    return new Promise((resolve, reject) => {
+
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', this.authService.token);
+
+      this.http.post(tryurl,JSON.stringify(coupondata), {headers: headers})
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -91,6 +115,49 @@ export class Coupon {
 	    });    
 
   	});
+
+  }
+
+
+  redeemCoupon(coupondata){
+
+    var tryurl = this.url + '/api/coupon/redeem/' + couponid;
+
+  	return new Promise((resolve, reject) => {
+
+	    let headers = new Headers();
+	    headers.append('Authorization', this.authService.token);
+
+           this.http.post(tryurl,JSON.stringify(coupondata), {headers: headers})
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+
+
+  	});
+
+  }
+   pauseActivateCoupon(pauseactivate){
+    var tryurl = this.url + '/api/coupon/pauseactivate/' + couponid;
+
+    return new Promise((resolve, reject) => {
+
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', this.authService.token);
+
+      this.http.post(tryurl ,JSON.stringify(pauseactivate), {headers: headers})
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+
+    });
 
   }
 

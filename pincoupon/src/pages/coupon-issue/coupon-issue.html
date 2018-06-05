@@ -44,14 +44,14 @@
             <button clear item-right ion-button>Validate</button>
         </ion-item>
         <ion-item>
-            <button item-left ion-button>Create coupon </button>
+            <button item-left ion-button (click)="createCoupon()">Create coupon </button>
             <a item-right ion-button  href="">Download coupon </a>
         </ion-item>
         <ion-item>
-            <button item-left ion-button>Activate </button>
+            <button item-left ion-button (click)="activateCoupon()">Activate </button>
         </ion-item>
         <ion-item>
-            <button item-left ion-button>Check balance </button>
+            <button item-left ion-button (click)="getCouponBalance">Check balance </button>
         </ion-item>
    </ion-list>
 

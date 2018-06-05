@@ -44,11 +44,12 @@
             <button item-right ion-button color="primary">Validate</button>
         </ion-item>
         <ion-item>
-            <button item-left ion-button>Check balance of coupon </button>
+            <button item-left ion-button (click)="getCouponBalance()">Check balance of coupon </button>
         </ion-item>
         <ion-item>
             <button item-left ion-button>Upload coupon redeem data</button>
-            <a item-right ion-button  href="">Redeem coupon </a>
+            <button item-right ion-button (click)="redeemCoupon()">Redeem coupon </button>
+
         </ion-item>
    </ion-list>
 

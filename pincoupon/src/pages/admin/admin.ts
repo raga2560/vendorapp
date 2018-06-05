@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { Manager } from '../../providers/manager';
+
 
 /**
  * Generated class for the AdminPage page.
@@ -15,11 +17,113 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AdminPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  loading: any;
+  plan: any;
+  plans: any;
+
+  constructor(public navCtrl: NavController, 
+              public planService: Manager,
+              public loadingCtrl: LoadingController,
+	      public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminPage');
   }
 
+  showLoader(){
+
+    this.loading = this.loadingCtrl.create({
+      content: 'Working...'
+    });
+
+    this.loading.present();
+
+  }
+
+  planCreate() {
+    this.showLoader();
+
+   var plandata = {
+        name: 'test'
+   };
+   this.planService.createPair(plandata).then((result) => {
+                this.loading.dismiss();
+                this.plan = result;
+                                        console.log("plan created");
+                                }, (err) => {
+                this.loading.dismiss();
+                                        console.log("not allowed"+ err);
+                                });
+  }
+
+  getPlan() {
+    this.showLoader();
+
+   var plandata = {
+        name: 'test'
+   };
+   this.planService.getPair(plandata).then((result) => {
+                this.loading.dismiss();
+                this.plan = result;
+                                        console.log("plan created");
+                                }, (err) => {
+                this.loading.dismiss();
+                                        console.log("not allowed"+ err);
+                                });
+  }
+
+ activatePlan(plan){
+
+    this.showLoader();
+
+    var pauseactivate = {
+        activate : true,
+        pause: false,
+        planid : 1
+    };
+
+    this.planService.pauseActivatePair(pauseactivate).then((result) => {
+
+      this.loading.dismiss();
+
+      //Remove locally
+                let index = this.plans.indexOf(plan);
+
+                if(index > -1){
+                        this.plans.splice(index, 1);
+                }
+
+    }, (err) => {
+      this.loading.dismiss();
+        console.log("not allowed");
+    });
+  }
+
+ pausePlan(plan){
+
+    this.showLoader();
+
+    var pauseactivate = {
+        activate : false,
+        pause: true,
+        planid : 1
+    };
+
+    this.planService.pauseActivatePair(pauseactivate).then((result) => {
+
+      this.loading.dismiss();
+
+      //Remove locally
+                let index = this.plans.indexOf(plan);
+
+                if(index > -1){
+                        this.plans.splice(index, 1);
+                }
+
+    }, (err) => {
+      this.loading.dismiss();
+        console.log("not allowed");
+    });
+  }
 }

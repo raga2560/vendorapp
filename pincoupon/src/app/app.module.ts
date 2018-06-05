@@ -10,6 +10,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { LoginPage } from '../pages/login-page/login-page';
 import { SignupPage } from '../pages/signup-page/signup-page';
 import { Todos } from '../providers/todos';
+import { Manager } from '../providers/manager';
+import { Coupon } from '../providers/coupon';
 import { Auth } from '../providers/auth';
 
 
@@ -50,6 +52,8 @@ import { CouponAdminPageModule } from '../pages/coupon-admin/coupon-admin.module
     StatusBar,
     SplashScreen,
     Todos, 
+    Manager, 
+    Coupon, 
     Auth,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
