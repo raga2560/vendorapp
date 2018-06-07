@@ -21,25 +21,22 @@
             <p> The server data to be used with server. The client data to be used with web or mobile client. </p>
         </ion-item>
         <ion-item>
-            <ion-input type="text" placeholder="Vendor id"></ion-input>
+            <ion-input type="text"  [(ngModel)]="plandata.planname" placeholder="Enter Plan name "></ion-input>
+            <button clear item-right ion-button>Validate plan name </button>
         </ion-item>
         <ion-item>
-            <ion-input type="number" placeholder="Enter vendor PIN "></ion-input>
-            <button item-right ion-button color="primary">Validate vendor</button>
         </ion-item>
         <ion-item>
-            <ion-input type="text" placeholder="Vendor Income address"></ion-input>
+            <ion-input type="text"  [(ngModel)]="plandata.vendorincomeaddress" placeholder="Vendor Income address"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="text" placeholder="Vendor Spending address"></ion-input>
+            <ion-input type="text"  [(ngModel)]="plandata.vendorspendingaddress" placeholder="Vendor Spending address"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="number" placeholder="Enter Spending Amount"></ion-input>
+            <ion-input type="number"  [(ngModel)]="plandata.vendorspendingamount" placeholder="Enter Spending Amount"></ion-input>
             <button clear item-right ion-button>Check balance</button>
         </ion-item>
         <ion-item>
-            <ion-input type="text" placeholder="Enter Plan name "></ion-input>
-            <button clear item-right ion-button>Validate plan name </button>
         </ion-item>
         <ion-item>
             <button item-left ion-button (click)="createPlan()">Create Plan </button>

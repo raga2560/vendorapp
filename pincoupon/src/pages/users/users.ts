@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { Manager } from '../../providers/manager';
+
+
 
 /**
  * Generated class for the UsersPage page.
@@ -15,11 +18,43 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UsersPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  loading: any;
+  relations: any;
+
+  constructor(public navCtrl: NavController,  public relationService: Manager, 
+              public loadingCtrl: LoadingController,
+              public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UsersPage');
+  ionViewDidLoad(){
+
+    this.relationService.getPairs().then((data) => {
+                  this.relations = data;
+    }, (err) => {
+        console.log("not allowed");
+    });
+
   }
+
+  refresh () {
+
+    this.relationService.getPairs().then((data) => {
+                  this.relations = data;
+    }, (err) => {
+        console.log("not allowed");
+    });
+
+  }
+  showLoader(){
+
+    this.loading = this.loadingCtrl.create({
+      content: 'Working...'
+    });
+
+    this.loading.present();
+
+  }
+
+
 
 }

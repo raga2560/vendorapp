@@ -97,6 +97,8 @@ export class Manager {
   
   pauseActivatePair(pauseactivate){
 
+    var pairid;
+ 
     var tryurl = this.url + '/api/manager/pairpauseactivate/' + pairid;
     return new Promise((resolve, reject) => {
 

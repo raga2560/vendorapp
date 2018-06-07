@@ -79,6 +79,8 @@ export class Coupon {
   
   getcouponBalance(coupondata){
 
+    var couponid =1;
+
     var tryurl = this.url + '/api/coupon/balance/' + couponid;
 
     return new Promise((resolve, reject) => {
@@ -120,6 +122,7 @@ export class Coupon {
 
 
   redeemCoupon(coupondata){
+    var couponid =1;
 
     var tryurl = this.url + '/api/coupon/redeem/' + couponid;
 
@@ -140,7 +143,31 @@ export class Coupon {
   	});
 
   }
+
+  validateCoupon(coupondata){
+    var couponid =1;
+
+    var tryurl = this.url + '/api/coupon/validate/' + couponid;
+
+  	return new Promise((resolve, reject) => {
+
+	    let headers = new Headers();
+	    headers.append('Authorization', this.authService.token);
+
+           this.http.post(tryurl,JSON.stringify(coupondata), {headers: headers})
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+
+
+  	});
+
+  }
    pauseActivateCoupon(pauseactivate){
+    var couponid =1;
     var tryurl = this.url + '/api/coupon/pauseactivate/' + couponid;
 
     return new Promise((resolve, reject) => {

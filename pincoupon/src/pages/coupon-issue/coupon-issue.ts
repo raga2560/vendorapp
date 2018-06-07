@@ -21,10 +21,18 @@ export class CouponIssuePage {
   coupon: any;
   balance: any;
   loading: any;
+  coupondata: any;
 
   constructor(public navCtrl: NavController, public couponService: Coupon, 
               public loadingCtrl: LoadingController,
               public navParams: NavParams) {
+
+       this.coupondata = {
+            couponid: '',
+            coupontype: '',
+	    couponvalue: '',
+            couponpin: ''
+       };
   }
 
   ionViewDidLoad() {
@@ -44,10 +52,7 @@ export class CouponIssuePage {
   couponCreate() {
     this.showLoader();
 
-   var coupondata = {
-	name: 'test'
-   };
-   this.couponService.createCoupon(coupondata).then((result) => {
+   this.couponService.createCoupon(this.coupondata).then((result) => {
                 this.loading.dismiss();
                 this.coupon = result;
                                         console.log("coupon created");
@@ -84,7 +89,7 @@ export class CouponIssuePage {
         couponid : 1
     };
 
-    this.couponService.couponPauseActivate(pauseactivate).then((result) => {
+    this.couponService.pauseActivateCoupon(pauseactivate).then((result) => {
 
       this.loading.dismiss();
 
@@ -111,7 +116,7 @@ export class CouponIssuePage {
         couponid : 1
     };
 
-    this.couponService.couponPauseActivate(pauseactivate).then((result) => {
+    this.couponService.pauseActivateCoupon(pauseactivate).then((result) => {
 
       this.loading.dismiss();
 

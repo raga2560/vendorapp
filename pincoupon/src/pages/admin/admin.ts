@@ -20,11 +20,20 @@ export class AdminPage {
   loading: any;
   plan: any;
   plans: any;
+ 
+  plandata : any;
 
   constructor(public navCtrl: NavController, 
               public planService: Manager,
               public loadingCtrl: LoadingController,
 	      public navParams: NavParams) {
+
+       this.plandata = {
+	  vendorincomeaddress: 'xx1',
+	  vendorspendingaddress: 'xx2',
+	  vendorspendingamount : 100
+
+       };
   }
 
   ionViewDidLoad() {
@@ -44,10 +53,7 @@ export class AdminPage {
   planCreate() {
     this.showLoader();
 
-   var plandata = {
-        name: 'test'
-   };
-   this.planService.createPair(plandata).then((result) => {
+   this.planService.createPair(this.plandata).then((result) => {
                 this.loading.dismiss();
                 this.plan = result;
                                         console.log("plan created");
@@ -63,14 +69,17 @@ export class AdminPage {
    var plandata = {
         name: 'test'
    };
-   this.planService.getPair(plandata).then((result) => {
+
+   var whichside = 1;
+
+   this.planService.getPair(plandata, whichside).then((result) => {
                 this.loading.dismiss();
                 this.plan = result;
                                         console.log("plan created");
                                 }, (err) => {
                 this.loading.dismiss();
                                         console.log("not allowed"+ err);
-                                });
+                               });
   }
 
  activatePlan(plan){

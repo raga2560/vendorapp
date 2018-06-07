@@ -17,34 +17,32 @@
 
   <ion-list  inset padding>
         <ion-item>
-        Initialise client
+         Application to redeem coupon
         </ion-item>
         <ion-item>
-            <ion-input type="text" placeholder="Upload client data"></ion-input>
-            <button item-right ion-button color="primary">Upload</button>
-        </ion-item>
-        <ion-item>
-            <button item-left ion-button>Initialise </button>
-            <button item-right ion-button>Activate </button>
         </ion-item>
         <ion-item-divider>
             <p> Unlock coupon, by giving PIN </p>
         </ion-item-divider>
 
         <ion-item>
+            <ion-input type="text" [(ngModel)]="couponid" placeholder="Coupon id to redeem"></ion-input>
+            <button item-right ion-button color="primary">Check validity of coupon </button>
         </ion-item>
         <ion-item>
-            <ion-input type="text" placeholder="Coupon id"></ion-input>
+            <button item-left ion-button (click)="getCouponBalance()">Balance of coupon </button>
         </ion-item>
         <ion-item>
-            <ion-input type="text" placeholder="Enter PIN"></ion-input>
+            <ion-label > Balance of coupon : </ion-label> 
         </ion-item>
         <ion-item>
-            <ion-input type="number" placeholder="Address to redeem "></ion-input>
-            <button item-right ion-button color="primary">Validate</button>
+            <ion-input type="text" [(ngModel)]="couponpin" placeholder="Enter PIN to unlock"></ion-input>
         </ion-item>
         <ion-item>
-            <button item-left ion-button (click)="getCouponBalance()">Check balance of coupon </button>
+            <ion-input type="text" placeholder="Address to redeem "></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Enter redeem string "></ion-input>
         </ion-item>
         <ion-item>
             <button item-left ion-button>Upload coupon redeem data</button>
