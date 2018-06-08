@@ -22,6 +22,7 @@ export class CouponRedeemPage {
   balance: any;
   loading: any;
   coupondata: any;
+  redeemstatus: any; 
 
   constructor(public navCtrl: NavController, public couponService: Coupon, 
               public loadingCtrl: LoadingController,
